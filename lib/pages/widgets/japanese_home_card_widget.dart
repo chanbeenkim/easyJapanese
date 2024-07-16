@@ -32,9 +32,11 @@ class JapaneseHomeCardWidget extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600),
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontFamily: 'MinSans',
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
