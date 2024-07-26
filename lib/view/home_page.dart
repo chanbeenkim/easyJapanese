@@ -1,9 +1,9 @@
-import 'package:easy/pages/hiragana/hello_page.dart';
-import 'package:easy/pages/widgets/japanese_home_card_widget.dart';
+import 'package:easy/view/category/hello_page.dart';
+import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {

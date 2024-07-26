@@ -1,5 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:easy/pages/widgets/japanese_card_widget.dart';
+import 'package:easy/view/widgets/japanese_card_widget.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -79,6 +79,22 @@ class HelloPage extends ConsumerWidget {
                 JapaneseCardWidget(
                   japaneseAudio: 'sounds/sorry.mp3',
                   title: '죄송합니다 ごめんなさい',
+                  audioPlayer: audioPlayer,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                JapaneseCardWidget(
+                  japaneseAudio: 'sounds/sorry.mp3',
+                  title: '죄송합니다만 뭐 좀 여쭤봐도 될까요?\nすみませんが、ちょっとお聞きしてもいいですか？',
+                  audioPlayer: audioPlayer,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                JapaneseCardWidget(
+                  japaneseAudio: 'sounds/sorry.mp3',
+                  title: '죄송합니다만 뭐 좀 여쭤봐도 될까요?\nすみませんが、ちょっとお聞きしてもいいですか？',
                   audioPlayer: audioPlayer,
                 ),
               ],
