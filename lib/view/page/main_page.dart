@@ -1,9 +1,9 @@
 import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
+import 'package:easy/view/category/restaurant_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -65,7 +65,10 @@ class MainPage extends StatelessWidget {
             children: [
               JapaneseHomeCardWidget(
                 title: '식당 🍙',
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const RestaurantPage()));
+                },
               ),
               const SizedBox(width: 16),
               JapaneseHomeCardWidget(
