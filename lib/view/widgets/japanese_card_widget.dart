@@ -5,6 +5,7 @@ class JapaneseCardWidget extends StatelessWidget {
   final String japaneseAudio;
   final String title;
   final String subTitle;
+  final String jTitle;
   final AudioPlayer audioPlayer;
 
   const JapaneseCardWidget({
@@ -12,6 +13,7 @@ class JapaneseCardWidget extends StatelessWidget {
     required this.japaneseAudio,
     required this.title,
     required this.subTitle,
+    required this.jTitle,
     required this.audioPlayer,
   });
 
@@ -25,7 +27,6 @@ class JapaneseCardWidget extends StatelessWidget {
     return InkWell(
       onTap: _playAudio,
       child: Ink(
-        height: 80,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Colors.black54,
@@ -38,7 +39,20 @@ class JapaneseCardWidget extends StatelessWidget {
               title,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 24,
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'MinSans',
+              ),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              jTitle,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 16,
                 color: Colors.white,
                 fontWeight: FontWeight.w400,
                 fontFamily: 'MinSans',
