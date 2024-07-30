@@ -2,6 +2,7 @@ import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
 import 'package:easy/view/category/restaurant_page.dart';
+import 'package:easy/view/category/transportation_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,82 +17,163 @@ class MainPage extends StatelessWidget {
     final time = DateTimeUtils.getFormattedTime(now);
 
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            '$dayOfWeek, $date',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          Text(
-            time,
-            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(
-            height: 64,
-          ),
-          Image.asset(
-            'assets/images/travel.png',
-            scale: 4,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Row(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              JapaneseHomeCardWidget(
-                title: '인사 🤚',
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HelloPage()));
-                },
+              const SizedBox(
+                height: 64,
+              ),
+              Text(
+                '$dayOfWeek, $date',
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                time,
+                style:
+                    const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
               ),
               const SizedBox(
-                width: 16,
+                height: 64,
               ),
-              JapaneseHomeCardWidget(
-                title: '호텔 🏨',
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HotelPage()));
-                },
+              Image.asset(
+                'assets/images/travel.png',
+                scale: 4,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  JapaneseHomeCardWidget(
+                    title: '인사 🤚',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HelloPage()));
+                    },
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  JapaneseHomeCardWidget(
+                    title: '호텔 🏢',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HotelPage()));
+                    },
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  JapaneseHomeCardWidget(
+                    title: '식당 🍣',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const RestaurantPage()));
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '기차 🚅',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const TransportationPage()));
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '지하철 🚋',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '편의점 🍙',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '택시 🚕',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '위험 🚫',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  JapaneseHomeCardWidget(
+                    title: '쇼핑 🛍️',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '관광지 ⛩️',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '온천 ♨️',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '공항 ✈️',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  JapaneseHomeCardWidget(
+                    title: '렌트 ',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '숫자',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '날씨',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '요일',
+                    onTap: () {},
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '이자카야',
+                    onTap: () {},
+                  ),
+                ],
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              JapaneseHomeCardWidget(
-                title: '식당 🍙',
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const RestaurantPage()));
-                },
-              ),
-              const SizedBox(width: 16),
-              JapaneseHomeCardWidget(
-                title: '교통 🚅',
-                onTap: () {},
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              JapaneseHomeCardWidget(
-                title: '쇼핑 🛍️',
-                onTap: () {},
-              ),
-              const SizedBox(width: 16),
-              JapaneseHomeCardWidget(
-                title: '명소 🏔️',
-                onTap: () {},
-              ),
-            ],
-          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'food')
         ],
       ),
     );

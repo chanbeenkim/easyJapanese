@@ -16,8 +16,6 @@ class JapaneseHomeCardWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 100,
-        height: 100,
         decoration: const BoxDecoration(
           color: Colors.black54,
           borderRadius: BorderRadius.all(
@@ -33,7 +31,7 @@ class JapaneseHomeCardWidget extends StatelessWidget {
                 title,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontFamily: 'MinSans',
                   fontWeight: FontWeight.w600,
                 ),
