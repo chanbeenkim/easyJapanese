@@ -1,6 +1,7 @@
 import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/airport_page.dart';
 import 'package:easy/view/category/convenience_page.dart';
+import 'package:easy/view/category/emergency_page.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
 import 'package:easy/view/category/landmark_page.dart';
@@ -9,6 +10,7 @@ import 'package:easy/view/category/shopping_page.dart';
 import 'package:easy/view/category/subway_page.dart';
 import 'package:easy/view/category/taxi_page.dart';
 import 'package:easy/view/category/transportation_page.dart';
+import 'package:easy/view/category/check_list_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -151,7 +153,18 @@ class MainPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '응급 🚨',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const EmergencyPage()));
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  JapaneseHomeCardWidget(
+                    title: '준비물 💡',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const CheckListPage()));
+                    },
                   ),
                 ],
               ),

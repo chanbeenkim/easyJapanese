@@ -1,4 +1,3 @@
-import 'package:easy/view/page/check_list_page.dart';
 import 'package:easy/view/page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
