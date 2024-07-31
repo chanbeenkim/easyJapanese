@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-class JapaneseCardWidget extends StatelessWidget {
+class JapaneseCardWidget extends StatefulWidget {
   final String japaneseAudio;
   final String title;
   final String subTitle;
@@ -17,9 +17,20 @@ class JapaneseCardWidget extends StatelessWidget {
     required this.audioPlayer,
   });
 
+  @override
+  State<JapaneseCardWidget> createState() => _JapaneseCardWidgetState();
+}
+
+class _JapaneseCardWidgetState extends State<JapaneseCardWidget> {
   Future<void> _playAudio() async {
-    await audioPlayer.stop();
-    await audioPlayer.play(AssetSource(japaneseAudio));
+    await widget.audioPlayer.stop();
+    await widget.audioPlayer.play(AssetSource(widget.japaneseAudio));
+  }
+
+  @override
+  void dispose() {
+    widget.audioPlayer.stop();
+    super.dispose();
   }
 
   @override
@@ -36,7 +47,7 @@ class JapaneseCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              title,
+              widget.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 24,
@@ -49,7 +60,7 @@ class JapaneseCardWidget extends StatelessWidget {
               height: 8,
             ),
             Text(
-              jTitle,
+              widget.jTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 16,
@@ -59,7 +70,7 @@ class JapaneseCardWidget extends StatelessWidget {
               ),
             ),
             Text(
-              subTitle,
+              widget.subTitle,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 16,
