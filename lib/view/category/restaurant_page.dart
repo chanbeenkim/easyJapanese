@@ -59,6 +59,12 @@ class RestaurantPage extends ConsumerWidget {
         'jTitle': 'お水ください'
       },
       {
+        'audio': 'sounds/restaurant/beer_please.mp3',
+        'title': '생맥주 주세요',
+        'subTitle': '나마비이루오 오네가이시마스',
+        'jTitle': '生ビールをお願いします'
+      },
+      {
         'audio': 'sounds/restaurant/how_long.mp3',
         'title': '얼마나 기다려야 하나요?',
         'subTitle': '도레쿠라이 마타나이토 이케마센카?',

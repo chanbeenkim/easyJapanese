@@ -2,6 +2,7 @@ import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/convenience_page.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
+import 'package:easy/view/category/landmark_page.dart';
 import 'package:easy/view/category/restaurant_page.dart';
 import 'package:easy/view/category/shopping_page.dart';
 import 'package:easy/view/category/subway_page.dart';
@@ -138,7 +139,10 @@ class MainPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '관광지 ⛩️',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const LandmarkPage()));
+                    },
                   ),
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
@@ -148,31 +152,6 @@ class MainPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '공항 ✈️',
-                    onTap: () {},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  JapaneseHomeCardWidget(
-                    title: '렌트 ',
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '숫자',
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '날씨',
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '요일',
                     onTap: () {},
                   ),
                 ],
