@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/airport_page.dart';
 import 'package:easy/view/category/convenience_page.dart';
@@ -14,8 +17,41 @@ import 'package:easy/view/category/check_list_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  final AudioPlayer audioPlayer = AudioPlayer();
+  final List<String> sounds = [
+    'sounds/greetings/bye.mp3',
+    'sounds/greetings/no.mp3',
+    'sounds/greetings/yes.mp3',
+  ];
+  final List<String> texts = [
+    '바이',
+    '노우',
+    '예스',
+  ];
+
+  String? currentText;
+
+  Future<void> playRandomSound() async {
+    final random = Random();
+    final index = random.nextInt(sounds.length);
+    final sound = sounds[index];
+    final text = texts[index];
+
+    await audioPlayer.stop();
+    await audioPlayer.play(AssetSource(sound));
+
+    setState(() {
+      currentText = text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +59,12 @@ class MainPage extends StatelessWidget {
     final dayOfWeek = DateTimeUtils.getFormattedDayOfWeek(now);
     final date = DateTimeUtils.getFormattedDate(now);
     final time = DateTimeUtils.getFormattedTime(now);
+
+    @override
+    void dispose() {
+      audioPlayer.dispose();
+      super.dispose();
+    }
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -46,9 +88,22 @@ class MainPage extends StatelessWidget {
               const SizedBox(
                 height: 64,
               ),
-              Image.asset(
-                'assets/images/travel.png',
-                scale: 4,
+              if (currentText != null) ...[
+                const SizedBox(height: 16), // 텍스트 위에 여백 추가
+                Text(
+                  currentText!,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+              GestureDetector(
+                onTap: playRandomSound,
+                child: Image.asset(
+                  'assets/images/travel.png',
+                  scale: 4,
+                ),
               ),
               const SizedBox(
                 height: 16,
