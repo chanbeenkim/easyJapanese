@@ -9,7 +9,7 @@ class RestaurantPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final audioPlayer = AudioPlayer();
-    final List<Map<String, String>> greetings = [
+    final List<Map<String, String>> restaurant = [
       {
         'audio': 'sounds/greetings/sorry.mp3',
         'title': '저기요',
@@ -93,7 +93,7 @@ class RestaurantPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '호텔',
+          '식당',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -107,7 +107,7 @@ class RestaurantPage extends ConsumerWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: greetings.map((greeting) {
+              children: restaurant.map((greeting) {
                 return Column(
                   children: [
                     JapaneseCardWidget(

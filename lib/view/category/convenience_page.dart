@@ -9,7 +9,7 @@ class ConveniencePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final audioPlayer = AudioPlayer();
-    final List<Map<String, String>> greetings = [
+    final List<Map<String, String>> convenience = [
       {
         'audio': 'sounds/convenience/where_is_box_launch.mp3',
         'title': '도시락은 어디에 있나요?',
@@ -95,7 +95,7 @@ class ConveniencePage extends ConsumerWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: greetings.map((greeting) {
+              children: convenience.map((greeting) {
                 return Column(
                   children: [
                     JapaneseCardWidget(

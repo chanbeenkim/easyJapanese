@@ -9,7 +9,7 @@ class HotelPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final audioPlayer = AudioPlayer();
-    final List<Map<String, String>> greetings = [
+    final List<Map<String, String>> hotel = [
       {
         'audio': 'sounds/hotel/check_in_please.mp3',
         'title': '체크인 부탁드립니다',
@@ -101,7 +101,7 @@ class HotelPage extends ConsumerWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: greetings.map((greeting) {
+              children: hotel.map((greeting) {
                 return Column(
                   children: [
                     JapaneseCardWidget(

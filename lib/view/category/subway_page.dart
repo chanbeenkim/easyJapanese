@@ -87,7 +87,7 @@ class SubwayPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '인사',
+          '지하철',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,

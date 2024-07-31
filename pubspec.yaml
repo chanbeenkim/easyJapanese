@@ -74,6 +74,7 @@ flutter:
     - assets/sounds/convenience/
     - assets/sounds/taxi/
     - assets/sounds/subway/
+    - assets/sounds/shopping/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
