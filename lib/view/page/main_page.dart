@@ -1,4 +1,5 @@
 import 'package:easy/util/date_time_util.dart';
+import 'package:easy/view/category/airport_page.dart';
 import 'package:easy/view/category/convenience_page.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
@@ -60,9 +61,7 @@ class MainPage extends StatelessWidget {
                           builder: (context) => const HelloPage()));
                     },
                   ),
-                  const SizedBox(
-                    width: 8,
-                  ),
+                  const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '호텔 🏢',
                     onTap: () {
@@ -70,14 +69,25 @@ class MainPage extends StatelessWidget {
                           builder: (context) => const HotelPage()));
                     },
                   ),
-                  const SizedBox(
-                    width: 8,
-                  ),
+                  const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '식당 🍣',
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const RestaurantPage()));
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  JapaneseHomeCardWidget(
+                    title: '공항 ✈️',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const AirportPage()));
                     },
                   ),
                   const SizedBox(width: 8),
@@ -88,18 +98,25 @@ class MainPage extends StatelessWidget {
                           builder: (context) => const TransportationPage()));
                     },
                   ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '지하철 🚋',
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const SubwayPage()));
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  JapaneseHomeCardWidget(
+                    title: '택시 🚕',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const TaxiPage()));
                     },
                   ),
                   const SizedBox(width: 8),
@@ -112,16 +129,11 @@ class MainPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
-                    title: '택시 🚕',
+                    title: '쇼핑 🛍️',
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const TaxiPage()));
+                          builder: (context) => const ShoppingPage()));
                     },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '위험 🚫',
-                    onTap: () {},
                   ),
                 ],
               ),
@@ -129,14 +141,6 @@ class MainPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  JapaneseHomeCardWidget(
-                    title: '쇼핑 🛍️',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ShoppingPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '관광지 ⛩️',
                     onTap: () {
@@ -146,12 +150,7 @@ class MainPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
-                    title: '온천 ♨️',
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '공항 ✈️',
+                    title: '응급 🚨',
                     onTap: () {},
                   ),
                 ],

@@ -69,7 +69,7 @@ class LandmarkPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '쇼핑',
+          '관광지',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
