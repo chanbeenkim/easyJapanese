@@ -3,6 +3,7 @@ import 'package:easy/view/category/convenience_page.dart';
 import 'package:easy/view/category/hello_page.dart';
 import 'package:easy/view/category/hotel_page.dart';
 import 'package:easy/view/category/restaurant_page.dart';
+import 'package:easy/view/category/subway_page.dart';
 import 'package:easy/view/category/taxi_page.dart';
 import 'package:easy/view/category/transportation_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
@@ -94,7 +95,10 @@ class MainPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '지하철 🚋',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SubwayPage()));
+                    },
                   ),
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
@@ -165,11 +169,6 @@ class MainPage extends StatelessWidget {
                   const SizedBox(width: 8),
                   JapaneseHomeCardWidget(
                     title: '요일',
-                    onTap: () {},
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '이자카야',
                     onTap: () {},
                   ),
                 ],
