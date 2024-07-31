@@ -41,6 +41,60 @@ class ShoppingPage extends ConsumerWidget {
         'jTitle': '締め切りはいつですか？'
       },
       {
+        'audio': 'sounds/shopping/look_around.mp3',
+        'title': '좀 둘러봐도 될까요?',
+        'subTitle': '초쯔토 미테모 이이데스카?',
+        'jTitle': 'ちょっと見てもいいですか?'
+      },
+      {
+        'audio': 'sounds/shopping/that_look.mp3',
+        'title': '저거 보여주세요',
+        'subTitle': '아레오 미세테쿠다사이요',
+        'jTitle': 'あれを見せてくださいよ'
+      },
+      {
+        'audio': 'sounds/shopping/famous.mp3',
+        'title': '가장 인기 있는 건 어떤 거예요?',
+        'subTitle': '이치반 닌키가 아루노와 도레데스카?',
+        'jTitle': 'いちばん人気があるのは、どれですか?'
+      },
+      {
+        'audio': 'sounds/shopping/latest.mp3',
+        'title': '신상은 어떤 거예요?',
+        'subTitle': '신쇼오힌와 도레데스카?',
+        'jTitle': '新商品はどれですか？'
+      },
+      {
+        'audio': 'sounds/shopping/another_color.mp3',
+        'title': '다른 색상도 보여주세요',
+        'subTitle': '호카노 이로모 미세테이타다케마스카',
+        'jTitle': '他の色も見せていただけますか'
+      },
+      {
+        'audio': 'sounds/shopping/another_size.mp3',
+        'title': '다른 사이즈도 있나요?',
+        'subTitle': '호카노 사이즈모 아리마스카?',
+        'jTitle': '他のサイズもありますか？'
+      },
+      {
+        'audio': 'sounds/shopping/can_i_try.mp3',
+        'title': '입어봐도 되나요?',
+        'subTitle': '시차쿠시테모 이이데스카?',
+        'jTitle': '試着してもいいですか？'
+      },
+      {
+        'audio': 'sounds/shopping/present.mp3',
+        'title': '선물 포장해주세요',
+        'subTitle': '오쿠리모노노 호오소오오 시테쿠다사이',
+        'jTitle': '贈り物の包装をしてください'
+      },
+      {
+        'audio': 'sounds/shopping/how_much.mp3',
+        'title': '이건 얼마인가요?',
+        'subTitle': '코레와 이쿠라데스카?',
+        'jTitle': 'これはいくらですか？'
+      },
+      {
         'audio': 'sounds/shopping/pay.mp3',
         'title': '계산해주세요',
         'subTitle': '오칸조오 오네가이시마스',
@@ -69,6 +123,18 @@ class ShoppingPage extends ConsumerWidget {
         'title': '영수증은 필요없습니다',
         'subTitle': '료오슈우쇼와 이리마세',
         'jTitle': '領収書は要りません'
+      },
+      {
+        'audio': 'sounds/shopping/refund.mp3',
+        'title': '환불해주세요',
+        'subTitle': '하라이모도시오 오네가이시마스',
+        'jTitle': '払い戻しをお願いします'
+      },
+      {
+        'audio': 'sounds/shopping/change.mp3',
+        'title': '교환해주세요',
+        'subTitle': '코오칸 오네가이시마스',
+        'jTitle': '交換お願いします'
       },
     ];
 
