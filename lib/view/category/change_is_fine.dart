@@ -11,6 +11,18 @@ class TaxiPage extends ConsumerWidget {
     final audioPlayer = AudioPlayer();
     final List<Map<String, String>> taxi = [
       {
+        'audio': 'sounds/taxi/where_is_taxi_station.mp3',
+        'title': '택시 승강장은 어디인가요?',
+        'subTitle': '타쿠시이노리바와 도코데스카?',
+        'jTitle': 'タクシー乗り場はどこですか？'
+      },
+      {
+        'audio': 'sounds/taxi/this_place.mp3',
+        'title': '이 주소로 가주세요',
+        'subTitle': '코노 주우쇼마데 오네가이시마스',
+        'jTitle': 'この住所まで、お願いします'
+      },
+      {
         'audio': 'sounds/taxi/taxi_go.mp3',
         'title': '~까지 가주세요',
         'subTitle': '~마데 오네가이시마스',
@@ -53,17 +65,17 @@ class TaxiPage extends ConsumerWidget {
         'jTitle': '荷物を取り出します'
       },
       {
-        'audio': 'sounds/taxi/sorry_may_i_ask.mp3',
-        'title': '죄송합니다만 뭐 좀 여쭤봐도 될까요?',
-        'subTitle': '스미마센가 찌욧또 오키키시테모 이이테스카?',
-        'jTitle': 'すみませんが、ちょっとお聞きしてもいいですか？'
+        'audio': 'sounds/taxi/change_is_fine.mp3',
+        'title': '거스름돈은 괜찮습니다',
+        'subTitle': '오츠리와 켓코오데스',
+        'jTitle': 'お釣りは結構です'
       },
     ];
 
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '인사',
+          '택시',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,

@@ -11,6 +11,12 @@ class SubwayPage extends ConsumerWidget {
     final audioPlayer = AudioPlayer();
     final List<Map<String, String>> subway = [
       {
+        'audio': 'sounds/subway/where_is_subway.mp3',
+        'title': '지하철역은 어디에 있나요?',
+        'subTitle': '치카테츠노 에키와 도코니 아리마스카?',
+        'jTitle': '地下鉄の駅はどこにありますか？'
+      },
+      {
         'audio': 'sounds/subway/where_is_ticket.mp3',
         'title': '매표소는 어디인가요?',
         'subTitle': '치켓토우리바와 도코데스카',
@@ -41,6 +47,12 @@ class SubwayPage extends ConsumerWidget {
         'jTitle': '何番出口にありますか？'
       },
       {
+        'audio': 'sounds/subway/subway_map.mp3',
+        'title': '지하철 노선도를 주세요',
+        'subTitle': '치카테츠노 로센즈 쿠다사이',
+        'jTitle': '地下鉄の路線図、ください'
+      },
+      {
         'audio': 'sounds/subway/locker.mp3',
         'title': '짐 보관함 어디에 있어요?',
         'subTitle': '롯카아와 도코니 아리마스카',
@@ -57,6 +69,18 @@ class SubwayPage extends ConsumerWidget {
         'title': '티켓을 잃어버렸어요',
         'subTitle': '치켓토오 나쿠시테시마이마시타',
         'jTitle': 'チケットをなくしてしまいました'
+      },
+      {
+        'audio': 'sounds/subway/yellow_line.mp3',
+        'title': '안전선 뒤로 물러나 주세요',
+        'subTitle': '키이로이 센노 우치가와마데 사갓테쿠다사이',
+        'jTitle': '黄色い線の内側まで下がってください'
+      },
+      {
+        'audio': 'sounds/subway/subway_door.mp3',
+        'title': '문에 기대지 마세요',
+        'subTitle': '도아니 요리카카라나이데쿠다사이',
+        'jTitle': 'ドアに寄りかからないでください'
       },
     ];
 
