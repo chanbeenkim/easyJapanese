@@ -25,46 +25,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final AudioPlayer audioPlayer = AudioPlayer();
-  final List<String> sounds = [
-    'sounds/greetings/bye.mp3',
-    'sounds/greetings/no.mp3',
-    'sounds/greetings/yes.mp3',
-  ];
-  final List<String> texts = [
-    '바이',
-    '노우',
-    '예스',
-  ];
-
-  String? currentText;
-
-  Future<void> playRandomSound() async {
-    final random = Random();
-    final index = random.nextInt(sounds.length);
-    final sound = sounds[index];
-    final text = texts[index];
-
-    await audioPlayer.stop();
-    await audioPlayer.play(AssetSource(sound));
-
-    setState(() {
-      currentText = text;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
     final dayOfWeek = DateTimeUtils.getFormattedDayOfWeek(now);
     final date = DateTimeUtils.getFormattedDate(now);
     final time = DateTimeUtils.getFormattedTime(now);
-
-    @override
-    void dispose() {
-      audioPlayer.dispose();
-      super.dispose();
-    }
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -85,28 +51,9 @@ class _MainPageState extends State<MainPage> {
                 style:
                     const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
               ),
-              const SizedBox(
-                height: 64,
-              ),
-              if (currentText != null) ...[
-                const SizedBox(height: 16), // 텍스트 위에 여백 추가
-                Text(
-                  currentText!,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-              GestureDetector(
-                onTap: playRandomSound,
-                child: Image.asset(
-                  'assets/images/travel.png',
-                  scale: 4,
-                ),
-              ),
-              const SizedBox(
-                height: 16,
+              Image.asset(
+                'assets/images/cat.gif',
+                scale: 2,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -227,12 +174,12 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-          BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'food')
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'food')
+      //   ],
+      // ),
     );
   }
 }
