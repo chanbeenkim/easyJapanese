@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:audioplayers/audioplayers.dart';
 import 'package:easy/util/date_time_util.dart';
 import 'package:easy/view/category/airport_page.dart';
 import 'package:easy/view/category/convenience_page.dart';
@@ -17,14 +14,9 @@ import 'package:easy/view/category/check_list_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -38,148 +30,68 @@ class _MainPageState extends State<MainPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 64,
-              ),
-              Text(
-                '$dayOfWeek, $date',
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-              ),
-              Text(
-                time,
-                style:
-                    const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-              ),
-              Image.asset(
-                'assets/images/cat.gif',
-                scale: 2,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  JapaneseHomeCardWidget(
-                    title: '인사 🤚',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HelloPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '호텔 🏢',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HotelPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '식당 🍣',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const RestaurantPage()));
-                    },
-                  ),
-                ],
-              ),
+              const SizedBox(height: 64),
+              _dateTimeDisplay(dayOfWeek, date, time),
+              Image.asset('assets/images/cat.gif', scale: 2),
+              _cardRow([
+                _card('인사 🤚', const HelloPage(), context),
+                _card('호텔 🏢', const HotelPage(), context),
+                _card('식당 🍣', const RestaurantPage(), context),
+              ]),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  JapaneseHomeCardWidget(
-                    title: '공항 ✈️',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const AirportPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '기차 🚅',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const TransportationPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '지하철 🚋',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SubwayPage()));
-                    },
-                  ),
-                ],
-              ),
+              _cardRow([
+                _card('공항 ✈️', const AirportPage(), context),
+                _card('기차 🚅', const TransportationPage(), context),
+                _card('지하철 🚋', const SubwayPage(), context),
+              ]),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  JapaneseHomeCardWidget(
-                    title: '택시 🚕',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const TaxiPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '편의점 🍙',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ConveniencePage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '쇼핑 🛍️',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ShoppingPage()));
-                    },
-                  ),
-                ],
-              ),
+              _cardRow([
+                _card('택시 🚕', const TaxiPage(), context),
+                _card('편의점 🍙', const ConveniencePage(), context),
+                _card('쇼핑 🛍️', const ShoppingPage(), context),
+              ]),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  JapaneseHomeCardWidget(
-                    title: '관광지 ⛩️',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LandmarkPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '응급 🚨',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const EmergencyPage()));
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  JapaneseHomeCardWidget(
-                    title: '준비물 💡',
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CheckListPage()));
-                    },
-                  ),
-                ],
-              ),
+              _cardRow([
+                _card('관광지 ⛩️', const LandmarkPage(), context),
+                _card('응급 🚨', const EmergencyPage(), context),
+                _card('준비물 💡', const CheckListPage(), context),
+              ]),
             ],
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.food_bank), label: 'food')
-      //   ],
-      // ),
+    );
+  }
+
+  Widget _dateTimeDisplay(String dayOfWeek, String date, String time) {
+    return Column(
+      children: [
+        Text(
+          '$dayOfWeek, $date',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+        Text(
+          time,
+          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+        ),
+      ],
+    );
+  }
+
+  Widget _cardRow(List<Widget> cards) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:
+          cards.expand((card) => [card, const SizedBox(width: 8)]).toList()
+            ..removeLast(),
+    );
+  }
+
+  Widget _card(String title, Widget page, BuildContext context) {
+    return JapaneseHomeCardWidget(
+      title: title,
+      onTap: () => Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => page)),
     );
   }
 }
