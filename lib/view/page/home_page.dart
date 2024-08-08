@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     final time = DateTimeUtils.getFormattedTime(now);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
