@@ -1,97 +1,41 @@
-import 'package:easy/util/date_time_util.dart';
-import 'package:easy/view/category/airport_page.dart';
-import 'package:easy/view/category/convenience_page.dart';
-import 'package:easy/view/category/emergency_page.dart';
-import 'package:easy/view/category/hello_page.dart';
-import 'package:easy/view/category/hotel_page.dart';
-import 'package:easy/view/category/landmark_page.dart';
-import 'package:easy/view/category/restaurant_page.dart';
-import 'package:easy/view/category/shopping_page.dart';
-import 'package:easy/view/category/subway_page.dart';
-import 'package:easy/view/category/taxi_page.dart';
-import 'package:easy/view/category/transportation_page.dart';
-import 'package:easy/view/category/check_list_page.dart';
-import 'package:easy/view/widgets/japanese_home_card_widget.dart';
+import 'package:easy/view/page/home_page.dart';
+import 'package:easy/view/page/recommend_page.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _pages = <Widget>[
+    HomePage(),
+    RecommendPage(),
+  ];
+
+  void _onBottomTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    final dayOfWeek = DateTimeUtils.getFormattedDayOfWeek(now);
-    final date = DateTimeUtils.getFormattedDate(now);
-    final time = DateTimeUtils.getFormattedTime(now);
-
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 64),
-              _dateTimeDisplay(dayOfWeek, date, time),
-              Image.asset('assets/images/cat.gif', scale: 2),
-              _cardRow([
-                _card('인사 🤚', const HelloPage(), context),
-                _card('호텔 🏢', const HotelPage(), context),
-                _card('식당 🍣', const RestaurantPage(), context),
-              ]),
-              const SizedBox(height: 16),
-              _cardRow([
-                _card('공항 ✈️', const AirportPage(), context),
-                _card('기차 🚅', const TransportationPage(), context),
-                _card('지하철 🚋', const SubwayPage(), context),
-              ]),
-              const SizedBox(height: 16),
-              _cardRow([
-                _card('택시 🚕', const TaxiPage(), context),
-                _card('편의점 🍙', const ConveniencePage(), context),
-                _card('쇼핑 🛍️', const ShoppingPage(), context),
-              ]),
-              const SizedBox(height: 16),
-              _cardRow([
-                _card('관광지 ⛩️', const LandmarkPage(), context),
-                _card('응급 🚨', const EmergencyPage(), context),
-                _card('준비물 💡', const CheckListPage(), context),
-              ]),
-            ],
-          ),
-        ),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.library_books_outlined), label: '추천'),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onBottomTapped,
       ),
-    );
-  }
-
-  Widget _dateTimeDisplay(String dayOfWeek, String date, String time) {
-    return Column(
-      children: [
-        Text(
-          '$dayOfWeek, $date',
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-        ),
-        Text(
-          time,
-          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-        ),
-      ],
-    );
-  }
-
-  Widget _cardRow(List<Widget> cards) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children:
-          cards.expand((card) => [card, const SizedBox(width: 8)]).toList()
-            ..removeLast(),
-    );
-  }
-
-  Widget _card(String title, Widget page, BuildContext context) {
-    return JapaneseHomeCardWidget(
-      title: title,
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => page)),
     );
   }
 }
