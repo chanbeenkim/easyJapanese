@@ -12,16 +12,6 @@ class CommonConveniencePage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          '공통',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
       body: convenienceStoreAsyncValue.when(
         data: (docs) {
           return GridView.builder(
@@ -43,20 +33,18 @@ class CommonConveniencePage extends ConsumerWidget {
                       height: MediaQuery.of(context).size.height * 0.2,
                       fit: BoxFit.cover,
                     ),
-                    const SizedBox(height: 8),
                     Text(
                       document['title'],
                       style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold),
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 4),
                     Text(
                       document['subTitle'],
-                      style: const TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     Text(
                       document['price'],
-                      style: const TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
