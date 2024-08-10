@@ -23,6 +23,7 @@ class JapaneseCardWidget extends StatefulWidget {
 
 class _JapaneseCardWidgetState extends State<JapaneseCardWidget> {
   Future<void> _playAudio() async {
+    await widget.audioPlayer.setVolume(2);
     await widget.audioPlayer.stop();
     await widget.audioPlayer.play(AssetSource(widget.japaneseAudio));
   }
