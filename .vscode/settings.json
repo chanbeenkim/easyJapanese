@@ -3,6 +3,7 @@
         "audioplayers",
         "cupertino",
         "firestore",
+        "prefs",
         "riverpod"
     ]
 }

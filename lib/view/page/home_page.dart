@@ -11,7 +11,9 @@ import 'package:easy/view/category/subway_page.dart';
 import 'package:easy/view/category/taxi_page.dart';
 import 'package:easy/view/category/transportation_page.dart';
 import 'package:easy/view/category/check_list_page.dart';
+import 'package:easy/view/page/setting_page.dart';
 import 'package:easy/view/widgets/japanese_home_card_widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +24,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -30,17 +33,33 @@ class _HomePageState extends State<HomePage> {
     final time = DateTimeUtils.getFormattedTime(now);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const SettingPage()));
+            },
+            icon: const Icon(
+              Icons.settings,
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 64),
+              const SizedBox(
+                height: 32,
+              ),
               _dateTimeDisplay(dayOfWeek, date, time),
               Image.asset('assets/images/cat.gif', scale: 2),
               _cardRow([
-                _card('인사 🤚', const HelloPage(), context),
+                _card('hello', const HelloPage(), context),
                 _card('호텔 🏢', const HotelPage(), context),
                 _card('식당 🍣', const RestaurantPage(), context),
               ]),
