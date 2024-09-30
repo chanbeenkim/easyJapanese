@@ -1,4 +1,5 @@
 import 'package:easy/firebase_options.dart';
+import 'package:easy/view/page/home_page.dart';
 import 'package:easy/view/page/main_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: const MainPage(),
+      home: const HomePage(),
     );
   }
 }
